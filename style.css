@@ -557,16 +557,6 @@ a {
   color: #4169e1;
 }
 
-a:visited {
-  color: #800080;
-}
-
-a:hover,
-a:focus,
-a:active {
-  color: #191970;
-}
-
 a:focus {
   outline: thin dotted;
 }
@@ -991,6 +981,14 @@ textarea {
 }
 
 @font-face {
+  font-family: "Anonymous Pro";
+  src: url("assets/fonts/Anonymous_Pro/AnonymousPro-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Fjalla One";
   src: url("assets/fonts/Fjalla_One/FjallaOne-Regular.ttf") format("truetype");
   font-weight: normal;
@@ -1003,6 +1001,14 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("assets/fonts/Space_Mono/SpaceMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
   /* Variables de colores */
   --primary-color: #f8d819;
@@ -1018,13 +1024,13 @@ textarea {
 .header-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
   background-color: black;
   min-height: 80px;
 }
 
 .header-logo img {
-  max-width: 270px;
+  max-width: 190px;
   height: auto;
   margin-left: 15px;
 }
@@ -1045,7 +1051,7 @@ textarea {
 .menu-list li {
   margin-left: 20px;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
 }
 
@@ -1055,7 +1061,8 @@ textarea {
   font-size: 24px;
   font-family: var(--titulosL);
   transition: color 0.3s ease;
-  padding: 15px 10px;
+  padding: 0 20px;
+  text-transform: uppercase;
 }
 
 .menu-list li a:hover {
@@ -1355,4 +1362,486 @@ input[type="submit"]:hover {
   color: white;
   border: 1px solid var(--secondary-color) !important;
   padding: 10px !important;
+}
+
+/* css para el plugging de daterium */
+
+.daterium-brand-box {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.daterium-brand {
+  grid-area: 1 / 2 / 2 / 5;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.daterium-brand-family {
+  scroll-behavior: smooth;
+}
+
+.daterium-brand-title {
+  font-family: var(--titulosL);
+  font-size: 45px;
+  margin-top: 90px;
+}
+
+.daterium-brand-subfamily {
+  margin: 0 0 1rem;
+}
+
+.daterium-brand-toggle {
+  cursor: pointer;
+}
+
+.daterium-brand-subtitle-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: auto;
+}
+
+.daterium-brand-subtitle {
+  font-family: var(--titulosL);
+  font-size: 34px;
+  margin: 10px 0 0 0;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.daterium-brand-toggle-button {
+  padding: 0;
+  border: none;
+  margin: 0;
+  font-size: 2rem;
+  display: flex;
+  color: #000000;
+  font-weight: 500;
+  user-select: none;
+  cursor: pointer;
+}
+
+.daterium-brand-toggle-button:hover {
+  background: 0 0;
+  color: black;
+}
+
+.daterium-lista-categorias-container {
+  max-height: 100%;
+  display: block;
+  padding-top: 1.5rem;
+}
+
+.daterium-lista-collapsed {
+  max-height: 0;
+  display: none;
+}
+
+.daterium-lista-categorias {
+  gap: 2rem;
+  display: inline-grid;
+  width: 100%;
+  align-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  justify-content: space-around;
+}
+
+.daterium-lista-marcas {
+  grid-template-columns: repeat(3, 1fr);
+  padding-bottom: 4rem;
+}
+
+.daterium-categoria,
+.daterium-list-inner {
+  height: 100%;
+}
+
+.daterium-categoria {
+  transition: all 0.15s ease-in-out;
+  position: relative;
+  top: 0;
+  text-decoration: none;
+}
+
+.daterium-categoria a {
+  text-decoration: none;
+}
+
+.daterium-list-inner {
+  background-color: #000000;
+  box-shadow: 1px 1px 10px 0 rgb(58 58 58 /10%);
+  padding: 5px;
+}
+
+.daterium-categoria img {
+  width: 100%;
+}
+
+.daterium-list-title-container {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 65px 10px 10px;
+}
+
+.daterium-list-title {
+  margin: 0;
+  color: white;
+  text-transform: uppercase;
+  font-family: var(--titulosL);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* menu productos */
+.daterium-brand-menu {
+  display: block;
+}
+
+.daterium-brand-menu-container {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.daterium-brand-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.daterium-brand-menu-list-item {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  border: 1px solid white;
+  padding: 20px 25px;
+  cursor: pointer;
+}
+
+.daterium-brand-menu-list-title {
+  font-family: var(--titulosL);
+  color: black;
+  font-size: 24px;
+  text-decoration: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.daterium-brand-menu-list-title a {
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.daterium-toggle-button {
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.daterium-subfamilia-list {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.daterium-subfamilia-list.active {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  max-width: 100%;
+  left: 0;
+  top: 100%;
+}
+
+.daterium-brand-menu-subitem {
+  background-color: var(--secondary-color);
+  font-family: var(--texto);
+  font-size: 18px;
+  border: 1px solid white;
+  flex-grow: 1;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.daterium-brand-menu-subitem a {
+  color: white;
+  text-decoration: none;
+}
+
+.daterium-flecha-contenedor {
+  width: 60px;
+  height: 60px;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  color: black;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 20px;
+  text-decoration: none;
+  margin: 15px 0 0 15px;
+}
+
+.daterium-flecha-producto {
+  font-size: 28px;
+  color: black;
+  margin: 0 auto;
+  text-decoration: none;
+}
+
+.daterium-flecha-producto a {
+  color: black;
+  text-decoration: none;
+}
+
+.daterium-list-inner:hover .daterium-flecha-contenedor {
+  background-color: var(--primary-color);
+}
+
+/* css producto */
+
+.daterium-cabecera-producto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.daterium-titulo-producto {
+  font-family: var(--titulosXL);
+  font-size: 36px;
+  text-transform:uppercase;
+}
+
+.daterium-info-producto {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.daterium-imagen-centrada {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.daterium-imagen-producto {
+  width: auto;
+  height: auto;
+  max-width: 400px;
+  max-height: 400px;
+  margin: 0 auto;
+}
+
+.text-cabecera {
+  width: 60%;
+  font-family: var(--texto);
+  font-size: 20px;
+  padding: 25px 50px 25px 50px;
+}
+
+.daterium-puntos-clave {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.daterium-tabla-articulos-container {
+  width:100%;
+  overflow: auto;
+  margin: 0 0 1.5em;
+  max-height: 70vh;
+  touch-action: pan-x pan-y;
+}
+
+/* .daterium-tabla-articulos-container::-webkit-scrollbar {
+  width: 8px;
+  margin: 0 5px;
+}
+
+.daterium-tabla-articulos-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.daterium-tabla-articulos-container::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 4px;
+}
+
+.daterium-tabla-articulos-container::-webkit-scrollbar-thumb:hover {
+  background:rgb(42, 113, 219);
+  cursor: pointer;
+} */
+
+.tabla-articulos {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+.cabecera-articulos {
+  background: var(--primary-color);
+  top: 0rem;
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.daterium-elementos-cabecera-productos{
+  background-color: var(--primary-color);
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.daterium-producto-referencias > * {
+  text-size-adjust: 95%;
+  -webkit-text-size-adjust: 95%;
+}
+
+.daterium-producto-referencias tr:nth-child(even) {
+  background: rgb(248, 248, 248);
+ 
+}
+
+.daterium-producto-referencias tr > td {
+  border-top: .5px solid rgb(0, 0, 0);
+  border-bottom: .5px solid rgb(0, 0, 0);
+  
+}
+
+.daterium-ref.daterium-elemento-tabla-fixed {
+  z-index: 1;
+  font-weight: 700;
+}
+
+.daterium-elementos-lista {
+  line-height: 1;
+  padding: 1rem 0;
+  text-align: center;
+  /* font-size: 0.95rem; */
+}
+
+.daterium-ref-container {
+  cursor: copy;
+}
+
+.daterium-element-align {
+  vertical-align: middle;
+}
+
+.daterium-leyenda {
+  margin: 1rem 0 2.5rem;
+}
+
+.daterium-leyenda-stock {
+  gap: 1rem;
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.daterium-elemento-stock {
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.daterium-imagen-stock {
+  width: 1.35rem;
+}
+
+.daterium-descripcion-stock {
+  margin: 0;
+  margin: 0 2vw 0 0.5vw;
+  text-align: left;
+}
+
+.leyenda-articulos-descriptivo {
+  margin: 0 15px 24px 15px;
+}
+
+.daterium-info-div-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1em;
+  font-weight: 500;
+  line-height: 32px;
+  font-size: 20px;
+  cursor: pointer;
+  width: 100%;
+  color: #444444;
+  overflow: hidden;
+  border-width: 1.5px 0 0 0;
+  border-style: solid;
+  border-color: #e9edf2;
+}
+
+.daterium-fill-space {
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.daterium-img-expandir {
+  width: 2rem;
+}
+
+.ocultar {
+  display: none;
+}
+
+.daterium-info-expand {
+  padding-bottom: 1.5rem;
+}
+
+.info-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0.5rem 3em;
+}
+
+.info-div p {
+  margin: 0;
+}
+
+.daterium-info-title {
+  padding: 0.75rem 1.25em;
+  font-weight: 400;
+  font-size: 18px;
+  color: #444444;
+}
+
+.daterium-info-expand-cabecera {
+  cursor: auto;
 }
