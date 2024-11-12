@@ -1,2 +1,2 @@
-# plugin-daterium-erizo
-plugin-daterium-erizo
+# theme-erizo
+theme for erizo
