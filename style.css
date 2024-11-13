@@ -1410,7 +1410,7 @@ input[type="submit"]:hover {
   font-weight: 500;
 }
 
-.daterium-bloque-flecha{
+.daterium-bloque-flecha {
   background-color: white;
   height: 40px;
   width: 40px;
@@ -1562,7 +1562,8 @@ input[type="submit"]:hover {
   height: 40px;
   width: 40px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 32px;
+  font-weight: 400;
   margin-left: 10px;
   display: flex;
   align-items: center;
@@ -1648,7 +1649,7 @@ input[type="submit"]:hover {
 .daterium-titulo-producto {
   font-family: var(--titulosXL);
   font-size: 36px;
-  text-transform:uppercase;
+  text-transform: uppercase;
 }
 
 .daterium-info-producto {
@@ -1661,8 +1662,12 @@ input[type="submit"]:hover {
 }
 
 .daterium-imagen-centrada {
-  margin: 0 auto;
+  margin: 25px auto;
   max-width: 500px;
+}
+
+.daterium-producto-slide {
+  margin: 25px auto;
 }
 
 .daterium-imagen-producto {
@@ -1671,6 +1676,29 @@ input[type="submit"]:hover {
   max-width: 400px;
   max-height: 400px;
   margin: 0 auto;
+}
+
+.daterium-producto-img-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  
+}
+
+.daterium-producto-img-buttons a {
+  background-color: var(--primary-color);
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.select-ref {
+  max-width: 250px;
 }
 
 .text-cabecera {
@@ -1687,7 +1715,7 @@ input[type="submit"]:hover {
 }
 
 .daterium-tabla-articulos-container {
-  width:100%;
+  width: 100%;
   overflow: auto;
   margin: 0 0 1.5em;
   max-height: 70vh;
@@ -1727,7 +1755,7 @@ input[type="submit"]:hover {
   position: sticky;
 }
 
-.daterium-elementos-cabecera-productos{
+.daterium-elementos-cabecera-productos {
   background-color: var(--primary-color);
   color: rgb(0, 0, 0);
   text-transform: uppercase;
@@ -1742,13 +1770,11 @@ input[type="submit"]:hover {
 
 .daterium-producto-referencias tr:nth-child(even) {
   background: rgb(248, 248, 248);
- 
 }
 
 .daterium-producto-referencias tr > td {
-  border-top: .5px solid rgb(0, 0, 0);
-  border-bottom: .5px solid rgb(0, 0, 0);
-  
+  border-top: 0.5px solid rgb(0, 0, 0);
+  border-bottom: 0.5px solid rgb(0, 0, 0);
 }
 
 .daterium-ref.daterium-elemento-tabla-fixed {
@@ -1788,7 +1814,7 @@ input[type="submit"]:hover {
   font-size: 20px;
   cursor: pointer;
   width: 100%;
-  color: #444444;
+  color: #000000;
   overflow: hidden;
   border-width: 1.5px 0 0 0;
   border-style: solid;
@@ -1802,6 +1828,11 @@ input[type="submit"]:hover {
 
 .daterium-img-expandir {
   width: 2rem;
+  margin: 0;
+}
+
+.girar-imagen {
+  transform: rotate(180deg);
 }
 
 .ocultar {
@@ -1815,12 +1846,13 @@ input[type="submit"]:hover {
 .daterium-referencia-flex {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px; 
+  gap:1rem;
   margin: 0 10px;
+  
 }
 
 .daterium-referencia-flex > * {
-  flex: 1 1 calc(50% - 1rem); 
+  flex: 1 1 calc(50% - 2rem); 
   min-width: 200px; 
 }
 
@@ -1837,10 +1869,13 @@ input[type="submit"]:hover {
   margin: 0;
 }
 
-.daterium-info-bloques{
+.info-div a {
+  text-decoration: none;
+}
+
+.daterium-info-bloques {
   border: 1px solid var(--secondary-color);
   padding: 15px;
-
 }
 
 .daterium-info-title {
@@ -1853,11 +1888,49 @@ input[type="submit"]:hover {
   text-transform: uppercase;
 }
 
-.daterium-producto-info-cab{
+.daterium-producto-info-cab {
   font-weight: 700;
   font-size: 18px;
 }
 
 .daterium-info-expand-cabecera {
   cursor: auto;
+}
+
+/* css cuando son varias imgs */
+
+.daterium-productos-relacionados {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  justify-content: space-evenly;
+  align-content: center;
+  padding: 1em;
+  gap: 2em;
+  align-items: baseline;
+}
+
+.daterium-producto-relacionado {
+  max-height: 100%;
+  
+}
+
+.daterium-producto-relacionado a {
+  margin-top: .7rem;
+  text-decoration: none;
+  color: currentColor;
+  
+}
+
+.imagen-relacionados {
+  display: block;
+  width: auto;
+  max-height: 200px;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.texto-producto-relacionado {
+  text-align: center;
+  padding-top: 1em;
 }
