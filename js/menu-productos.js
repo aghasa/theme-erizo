@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     sub.style.display = "block";
                 });
 
-                toggleButton.innerHTML = "&#9660;"; 
+                toggleButton.innerHTML = "&#8594;"; 
             }
         });
 
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleButton.addEventListener("click", function (e) {
             e.stopPropagation();
             subfamilyList.classList.toggle("active");
-            toggleButton.innerHTML = subfamilyList.classList.contains("active") ? "&#9650;" : "&#9660;";
+            toggleButton.innerHTML = subfamilyList.classList.contains("active") ? "&#8595;" : "&#8594;";
 
             //ocultar subfamilis si hay otras abiertas
             document.querySelectorAll(".daterium-subfamilia-list.active").forEach(list => {
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //resetea la flecha cuando se pulsa otra
             document.querySelectorAll(".daterium-toggle-button").forEach(button => {
                 if (button !== toggleButton) {
-                    button.innerHTML = "&#9660;"; 
+                    button.innerHTML = "&#8594;"; 
                 }
             });
         });

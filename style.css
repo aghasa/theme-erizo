@@ -1410,6 +1410,14 @@ input[type="submit"]:hover {
   font-weight: 500;
 }
 
+.daterium-bloque-flecha{
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+  text-align: center;
+}
+
 .daterium-brand-toggle-button {
   padding: 0;
   border: none;
@@ -1549,9 +1557,16 @@ input[type="submit"]:hover {
 }
 
 .daterium-toggle-button {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  height: 40px;
+  width: 40px;
   cursor: pointer;
-  margin-left: 10px;
   font-size: 18px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .daterium-subfamilia-list {
@@ -1717,6 +1732,7 @@ input[type="submit"]:hover {
   color: rgb(0, 0, 0);
   text-transform: uppercase;
   font-weight: 700;
+  padding: 0 10px;
 }
 
 .daterium-producto-referencias > * {
@@ -1742,9 +1758,8 @@ input[type="submit"]:hover {
 
 .daterium-elementos-lista {
   line-height: 1;
-  padding: 1rem 0;
+  padding: 1rem 1rem;
   text-align: center;
-  /* font-size: 0.95rem; */
 }
 
 .daterium-ref-container {
@@ -1794,12 +1809,17 @@ input[type="submit"]:hover {
 }
 
 .daterium-info-expand {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem; 
+  padding-bottom: 1.5rem;
 }
 
-.daterium-info-expand > * {
+.daterium-referencia-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; 
+  margin: 0 10px;
+}
+
+.daterium-referencia-flex > * {
   flex: 1 1 calc(50% - 1rem); 
   min-width: 200px; 
 }
@@ -1819,14 +1839,23 @@ input[type="submit"]:hover {
 
 .daterium-info-bloques{
   border: 1px solid var(--secondary-color);
+  padding: 15px;
 
 }
 
 .daterium-info-title {
-  margin: 20px 15px 10px 15px;
+  margin: 0 15px 10px 15px;
   font-weight: 400;
+  font-size: 22px;
+  color: var(--secondary-color);
+  font-family: var(--texto);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.daterium-producto-info-cab{
+  font-weight: 700;
   font-size: 18px;
-  color: #444444;
 }
 
 .daterium-info-expand-cabecera {
