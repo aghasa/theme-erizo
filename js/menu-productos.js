@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const familyItems = document.querySelectorAll(".daterium-brand-menu-list-item");
 
     //recorre los elementos del menu->familias y subfamilias
     familyItems.forEach((item, index) => {
@@ -8,29 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const familyId = `#mf${index}`;
         const familyContainer = document.querySelector(familyId);
 
-        // Pulsar en la familia -> mostrar todos los productos de la familia
-        item.addEventListener("click", function (e) {
-            if (e.target !== toggleButton && !subfamilyList.contains(e.target)) {
-                // reinicia al pulsar una family nuev
-                document.querySelectorAll(".daterium-subfamilia-list.active").forEach(list => {
-                    list.classList.remove("active");
-                });
-
-                // ocultar otras family
-                document.querySelectorAll(".daterium-brand-family").forEach(fam => {
-                    fam.style.display = "none";
-                });
-
-                // family seleccionada se ven productos
-                familyContainer.style.display = "block";
-                familyContainer.querySelectorAll(".daterium-brand-subfamily").forEach(sub => {
-                    sub.style.display = "block";
-                });
-
-                toggleButton.innerHTML = "+"; 
-            }
-        });
-
+        
         // Flecha -> subfamilias del menú
         toggleButton.addEventListener("click", function (e) {
             e.stopPropagation();
@@ -76,3 +53,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+const familyItems = document.querySelectorAll(".daterium-brand-menu-list-item");
+function mostrarFamilia(familyContainer) {
+    document.querySelectorAll(".daterium-brand-family").forEach(fam => {
+        fam.style.display = "none";
+    });
+    familyContainer.style.display = "block";
+    familyContainer.querySelectorAll(".daterium-brand-subfamily").forEach(sub => {
+        sub.style.display = "block";
+    });
+}
