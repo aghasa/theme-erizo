@@ -178,20 +178,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
-// sidebar personalizado
-
-add_action( 'widgets_init', 'my_register_sidebars' );
-function my_register_sidebars() {
-	register_sidebar(
-		array(
-			'id'            => 'sidebar-familia',
-			'name'          => __( 'Sidebar Familias' ),
-			'description'   => __( 'sidebar de familias.' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
-		)
-	);
-}
