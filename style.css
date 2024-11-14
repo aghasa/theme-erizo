@@ -206,6 +206,7 @@ img {
   border-style: none;
   max-width: 1000px;
   margin: 0 auto;
+  object-fit: cover;
 }
 
 /* botones */
@@ -1118,10 +1119,16 @@ textarea {
 
 .bloqueFotoTxt {
   background-color: black;
-  height: 400px;
+  max-height: 500px;
 }
 
 .bloqueFotoTxt figure {
+  height: 100%;
+  overflow: hidden;
+  object-fit: fill;
+}
+
+.wp-block-media-text__media img {
   height: 100%;
   overflow: hidden;
 }
@@ -1190,8 +1197,9 @@ textarea {
 }
 
 .filaEmpresa {
-  height: 350px;
+  max-height: fit-content;
   display: flex;
+  flex-direction: row;
   margin: 0;
   align-items: stretch;
 
@@ -1684,7 +1692,6 @@ input[type="submit"]:hover {
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
-  
 }
 
 .daterium-producto-img-buttons a {
@@ -1862,14 +1869,13 @@ input[type="submit"]:hover {
 .daterium-referencia-flex {
   display: flex;
   flex-wrap: wrap;
-  gap:1rem;
+  gap: 1rem;
   margin: 0 10px;
-  
 }
 
 .daterium-referencia-flex > * {
-  flex: 1 1 calc(50% - 2rem); 
-  min-width: 200px; 
+  flex: 1 1 calc(50% - 2rem);
+  min-width: 200px;
 }
 
 .info-div {
@@ -1927,14 +1933,12 @@ input[type="submit"]:hover {
 
 .daterium-producto-relacionado {
   max-height: 100%;
-  
 }
 
 .daterium-producto-relacionado a {
-  margin-top: .7rem;
+  margin-top: 0.7rem;
   text-decoration: none;
   color: currentColor;
-  
 }
 
 .imagen-relacionados {
@@ -1953,18 +1957,19 @@ input[type="submit"]:hover {
 
 /* estilos para las familias en el index */
 
-.daterium-bloque-familias{
+.daterium-bloque-familias {
   list-style: none;
-    margin: 20px 0;
-    padding: 0;
-    max-height: calc(100vh - 2rem);
-    overflow-y: auto;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+  margin: 20px 0;
+  padding: 0;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-.daterium-familia{
+.daterium-familia {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -1974,9 +1979,10 @@ input[type="submit"]:hover {
   border: 1px solid white;
   padding: 30px 25px;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.daterium-familia-nombre{
+.daterium-familia-nombre {
   font-family: var(--titulosL);
   color: black;
   font-size: 32px;
@@ -1985,9 +1991,247 @@ input[type="submit"]:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-weight: 500;
-    color: black;
-    text-decoration: none;
-    text-transform: uppercase;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* responsive index*/
+
+/* ordenadores pequeños */
+@media (min-width: 769px) and (max-width: 1130px) {
+  .daterium-familia {
+    padding: 15px 10px;
+  }
+
+  .daterium-familia-nombre {
+    font-size: 23px;
+  }
+
+  .bloqueTxt {
+    margin: 10px;
+  }
+
+  .bloqueTxt h2 {
+    font-size: 25px;
+  }
+}
+
+/* tablets */
+@media (min-width: 671px) and (max-width: 768px) {
+  .daterium-familia {
+    padding: 15px 10px;
+  }
+
+  .daterium-familia-nombre {
+    font-size: 20px;
+  }
+
+  .bloqueTxt {
+    margin: 10px;
+  }
+
+  .bloqueTxt h2 {
+    font-size: 20px;
+  }
+
+  .bloqueTxt p {
+    margin: 0 0 10px 0;
+  }
+
+  .boton a {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .faldonContacto p {
+    font-size: 24px;
+  }
+}
+
+/* movil */
+
+@media (max-width: 670px) {
+  .header-menu {
+    display: none;
+  }
+  .daterium-familia {
+    padding: 15px 10px;
+  }
+
+  .daterium-familia-nombre {
+    font-size: 18px;
+  }
+
+  .wp-block-media-text__media img {
+    display: none;
+  }
+
+  .bloqueFotoTxt {
+    background: none;
+    max-height: fit-content;
+  }
+
+  .bloqueTxt {
+    background-color: black;
+    margin: 10px;
+    border: 1px solid white;
+    padding: 0 15px 15px 16px;
+    max-height: 500px !important;
+  }
+
+  .bloqueTxt h2 {
+    font-size: 18px;
+  }
+
+  .bloqueTxt p {
+    margin: 0 0 10px 0;
+  }
+
+  .boton a {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .faldonContacto p {
+    font-size: 20px;
+  }
+}
+
+/* responsive empresa*/
+
+/* ordenadores pequeños */
+@media (min-width: 769px) and (max-width: 980px) {
+  .filaEmpresa {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .filaEmpresa p {
+    border: none;
+  }
+
+  .filaEmpresa img {
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/* tablets */
+@media (min-width: 600px) and (max-width: 768px) {
+
+  .filaEmpresa {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .filaEmpresa p {
+    border: none;
+  }
+
+  .filaEmpresa img {
+    width: 75%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .tituloEmpresa{
+    font-size: 28px;
+  }
+}
+
+/* movil */
+
+@media (max-width: 599px) {
+
+  .filaEmpresa {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .filaEmpresa p {
+    border: none;
+  }
+
+  .filaEmpresa img {
+    width: 75%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .tituloEmpresa{
+    font-size: 22px;
+  }
+}
+
+/* responsive contacto*/
+
+/* ordenadores pequeños */
+@media (min-width: 790px) and (max-width: 980px) {
+  .columnaContacto{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contactoTitulo h2{
+    font-size: 28px;
+  }
+}
+
+/* tablets */
+@media (min-width: 600px) and (max-width: 789px) {
+
+  .filaEmpresa {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .filaEmpresa p {
+    border: none;
+  }
+
+  .filaEmpresa img {
+    width: 75%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .tituloEmpresa{
+    font-size: 28px;
+  }
+}
+
+/* movil */
+
+@media (max-width: 599px) {
+
+  .filaEmpresa {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .filaEmpresa p {
+    border: none;
+  }
+
+  .filaEmpresa img {
+    width: 75%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .tituloEmpresa{
+    font-size: 22px;
+  }
 }
