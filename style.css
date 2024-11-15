@@ -1294,18 +1294,27 @@ textarea {
 
 /* formulario */
 
-.formContacto {
+.contact-form-7-formContacto {
   background-color: black;
   color: white;
   margin: 0;
   font-size: 18px;
+  padding: 15px;
 }
 
-.nomApellid {
+.contact-form-7-nomTelfCorr {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.contact-form-7-nomTelfCorr p label {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 input[type="text"],
@@ -1321,13 +1330,13 @@ textarea {
   border-radius: 0;
 }
 
-.formContacto textarea {
+.contact-form-7-formContacto textarea {
   background-color: black;
   color: white;
   border: none;
   border-bottom: 2px solid white;
   padding: 10px;
-  width: 70%;
+  width: 80%;
   height: 70px;
   resize: vertical;
   font-family: var(--texto);
@@ -1371,7 +1380,7 @@ input[type="submit"]:hover {
   margin: 0 !important;
   color: white;
   border: 1px solid var(--secondary-color) !important;
-  padding: 10px !important;
+  padding: 10px 35px!important;
 }
 
 /* css para el plugging de daterium */
@@ -1568,7 +1577,7 @@ input[type="submit"]:hover {
 
 
 .colorActivo{
-  background-color: black;
+  background-color: var(--secondary-color);
   color: white;
 }
 
@@ -2190,36 +2199,68 @@ input[type="submit"]:hover {
 @media (min-width: 790px) and (max-width: 980px) {
   .columnaContacto{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .contactoTitulo h2{
     font-size: 28px;
+  }
+
+  .contactoInfo p{
+    font-size: 16px;
+  }
+
+  .txtTitForm{
+    font-size: 28px;
+    padding: 15px;
+  }
+
+  .formContacto{
+    padding:15px 25px ;
+  }
+
+  input[type="submit"]{
+    padding: 15px;
+    font-size: 18px;
   }
 }
 
 /* tablets */
 @media (min-width: 600px) and (max-width: 789px) {
 
-  .filaEmpresa {
+  .columnaContacto{
     display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
   }
 
-  .filaEmpresa p {
-    border: none;
+  .contactoTitulo h2{
+    font-size: 24px;
   }
 
-  .filaEmpresa img {
-    width: 75%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  .contactoInfo p{
+    font-size: 16px;
+    margin: 15px;
   }
 
-  .tituloEmpresa{
+  .txtTitForm{
     font-size: 28px;
+    padding: 15px;
+  }
+
+  .contact-form-7-formContacto{
+    padding:15px 25px ;
+  }
+
+  input[type="submit"]{
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  .contact-form-7-formContacto textarea {
+    font-size: 16px;
+  }
+
+  input[type="text"]{
+    font-size: 16px;
   }
 }
 
@@ -2227,24 +2268,40 @@ input[type="submit"]:hover {
 
 @media (max-width: 599px) {
 
-  .filaEmpresa {
+  .columnaContacto{
     display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
+    flex-wrap: wrap;
+    height: auto;
   }
 
-  .filaEmpresa p {
-    border: none;
+  .contactoTitulo h2{
+    font-size: 24px;
   }
 
-  .filaEmpresa img {
-    width: 75%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  .contactoInfo p{
+    font-size: 16px;
+    margin: 15px;
   }
 
-  .tituloEmpresa{
-    font-size: 22px;
+  .txtTitForm{
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  .contact-form-7-formContacto{
+    padding:15px 25px ;
+  }
+
+  input[type="submit"]{
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  .contact-form-7-formContacto textarea {
+    font-size: 16px;
+  }
+
+  input[type="text"]{
+    font-size: 16px;
   }
 }
