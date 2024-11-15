@@ -1,6 +1,36 @@
+
+function mostrarSubfamilias(familiaId) {
+  var subfamiliaId = 's'+familiaId;
+  var subfamiliaShow = document.getElementById(subfamiliaId);
+
+  var subfamiliasList = document.querySelectorAll(".daterium-subfamilia-list");
+
+  subfamiliasList.forEach((x) => {
+    x.style.display = "none";
+  });
+  
+  subfamiliaShow.style.display = "flex";
+};
+
+function cambiarColorActivo(familiaMenu) {
+
+  var familiaIdActive = 'b'+ familiaMenu;
+  var familiaActive = document.getElementById(familiaIdActive);
+
+  var familyContainersMenu = document.querySelectorAll(".daterium-brand-menu-list-item");
+
+  familyContainersMenu.forEach((x) => {
+    x.classList.remove('colorActivo');
+  });
+
+  familiaActive.classList.add('colorActivo');
+
+}
+
 function mostrarFamilia(familyContainer) {
   if (familyContainer != familyActive) {
-
+    mostrarSubfamilias(familyContainer);
+    cambiarColorActivo(familyContainer);
     familyContainerDiv =  document.getElementById(familyContainer);
     document.querySelectorAll(".daterium-brand-family").forEach((fam) => {
       fam.style.display = "none";
@@ -16,30 +46,14 @@ function mostrarFamilia(familyContainer) {
     document.querySelectorAll(".daterium-brand-family").forEach((fam) => {
       fam.style.display = "block";
     });
+    document.querySelectorAll(".daterium-brand-menu-list-item").forEach((item) => {
+      item.classList.remove('colorActivo');
+    });
+    document
+      .querySelectorAll(".daterium-subfamilia-list")
+      .forEach((sub) => {
+        sub.style.display = "none";
+      });
     familyActive = 0;
   }
-}
-
-function mostrarSubfamilias(button, familiaId) {
-  console.log(familiaId);
-  var subfamiliaShow = document.getElementById(familiaId);
-
-  var subfamiliasList = document.querySelectorAll(".daterium-subfamilia-list");
-
-  subfamiliasList.forEach((x) => {
-    x.style.display = "none";
-  });
-  
-  subfamiliaShow.style.display = "flex";
-/*
-  if (
-    subfamiliasList.style.display === "none" ||
-    subfamiliasList.style.display === ""
-  ) {
-    subfamiliasList.style.display = "block";
-    button.textContent = "-";
-  } else {
-    subfamiliasList.style.display = "none";
-    button.textContent = "+";
-  }*/
-}
+};

@@ -1042,6 +1042,8 @@ textarea {
   margin-right: 15px;
 }
 
+
+
 .menu-list {
   list-style: none;
   margin: 0;
@@ -1392,7 +1394,6 @@ input[type="submit"]:hover {
 .daterium-brand-title {
   font-family: var(--titulosL);
   font-size: 45px;
-  margin-top: 90px;
 }
 
 .daterium-brand-subfamily {
@@ -1546,6 +1547,7 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
+
 .daterium-brand-menu-list-title {
   font-family: var(--titulosL);
   color: black;
@@ -1562,6 +1564,16 @@ input[type="submit"]:hover {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+
+.colorActivo{
+  background-color: black;
+  color: white;
+}
+
+.colorActivo a{
+  color: white;
 }
 
 .daterium-toggle-button {
@@ -1612,6 +1624,7 @@ input[type="submit"]:hover {
 .daterium-brand-menu-subitem a {
   color: white;
   text-decoration: none;
+  width: 100%;
 }
 
 .daterium-flecha-contenedor {
