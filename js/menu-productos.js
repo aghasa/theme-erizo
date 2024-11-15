@@ -24,3 +24,7 @@ function mostrarFamilia(familyContainer) {
     }
 }
 
+function mostrarSubfamilias(){
+  
+}
+
