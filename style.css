@@ -543,10 +543,6 @@ object {
   max-width: 100%;
 }
 
-figure {
-  margin: 1em 0;
-}
-
 table {
   margin: 0 0 1.5em;
   width: 100%;
@@ -1037,12 +1033,10 @@ textarea {
 }
 
 .header-menu {
-  display: flex;
-  min-height: 80px;
+  display: inline;
+  height: 80px;
   margin-right: 15px;
 }
-
-
 
 .menu-list {
   list-style: none;
@@ -1054,7 +1048,6 @@ textarea {
 .menu-list li {
   margin-left: 20px;
   display: flex;
-  align-items: end;
   justify-content: center;
 }
 
@@ -1064,6 +1057,7 @@ textarea {
   font-size: 24px;
   font-family: var(--titulosL);
   transition: color 0.3s ease;
+  align-content: end;
   padding: 0 20px;
   text-transform: uppercase;
 }
@@ -1089,6 +1083,58 @@ textarea {
   border-bottom: none;
 }
 
+/* menu responsive con hamburguesa */
+
+.hamburger-icon {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  height: 40px;
+}
+
+.header-menu.active {
+  display: block;
+}
+
+.header-menu .menu-list {
+  display: flex;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .header-menu .menu-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background-color: black;
+    z-index: 10;
+  }
+
+  .menu-list li {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .hamburger-icon {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+  }
+}
+
+.header-menu.active .menu-list {
+  display: flex;
+}
+
 /* footer */
 
 .footer-menu {
@@ -1100,11 +1146,14 @@ textarea {
   font-family: var(--texto);
   background-color: var(--secondary-color);
   padding: 10px;
-  font-size: 18px;
+  font-size: 14px;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .footer-menu li {
   padding: 1em;
+
 }
 
 .footer-menu a {
@@ -1121,37 +1170,49 @@ textarea {
 
 .bloqueFotoTxt {
   background-color: black;
-  max-height: 500px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  gap: 0;
 }
 
-.bloqueFotoTxt figure {
+.columnFoto {
+  height: 100% !important;
+}
+
+.columnFoto figure img {
+  object-fit: cover;
   height: 100%;
-  overflow: hidden;
-  object-fit: fill;
 }
 
-.wp-block-media-text__media img {
-  height: 100%;
-  overflow: hidden;
+.columnFoto figure {
+  margin: 0;
 }
 
-.bloqueTxt {
+.columnInfo {
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
 }
 
-.bloqueTxt h2 {
+.columnInfo h2 {
   font-family: var(--titulosL);
   font-size: 28px;
   color: white;
+  padding: 0 15px;
 }
 
-.bloqueTxt p {
+.columnInfo p {
   font-family: var(--texto);
   font-size: 18px;
   color: white;
   margin-bottom: 25px;
+  padding: 0 15px;
 }
 
 .boton a {
@@ -1300,14 +1361,17 @@ textarea {
   margin: 0;
   font-size: 18px;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .contact-form-7-nomTelfCorr {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: row;
-  flex-wrap: wrap;
   width: 100%;
 }
 
@@ -1315,6 +1379,11 @@ textarea {
   display: flex;
   width: 100%;
   margin-bottom: 15px;
+}
+
+.contact-form-7-labels{
+  width: 70%;
+  padding: 15px;
 }
 
 input[type="text"],
@@ -1330,13 +1399,17 @@ textarea {
   border-radius: 0;
 }
 
+textarea::placeholder, input::placeholder {
+  color: rgb(238, 238, 238);
+}
+
 .contact-form-7-formContacto textarea {
   background-color: black;
   color: white;
   border: none;
   border-bottom: 2px solid white;
   padding: 10px;
-  width: 80%;
+  width: 100%;
   height: 70px;
   resize: vertical;
   font-family: var(--texto);
@@ -1380,7 +1453,7 @@ input[type="submit"]:hover {
   margin: 0 !important;
   color: white;
   border: 1px solid var(--secondary-color) !important;
-  padding: 10px 35px!important;
+  padding: 10px 35px !important;
 }
 
 /* css para el plugging de daterium */
@@ -1556,7 +1629,6 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
-
 .daterium-brand-menu-list-title {
   font-family: var(--titulosL);
   color: black;
@@ -1575,13 +1647,12 @@ input[type="submit"]:hover {
   text-transform: uppercase;
 }
 
-
-.colorActivo{
+.menu-familia-active {
   background-color: var(--secondary-color);
   color: white;
 }
 
-.colorActivo a{
+.menu-familia-active a {
   color: white;
 }
 
@@ -1981,7 +2052,6 @@ input[type="submit"]:hover {
 
 .daterium-bloque-familias {
   list-style: none;
-  margin: 20px 0;
   padding: 0;
   max-height: calc(100vh - 2rem);
   overflow-y: auto;
@@ -2018,10 +2088,11 @@ input[type="submit"]:hover {
   text-align: center;
 }
 
+
 /* responsive index*/
 
 /* ordenadores pequeños */
-@media (min-width: 769px) and (max-width: 1130px) {
+@media (min-width: 782px) and (max-width: 1130px) {
   .daterium-familia {
     padding: 15px 10px;
   }
@@ -2040,7 +2111,7 @@ input[type="submit"]:hover {
 }
 
 /* tablets */
-@media (min-width: 671px) and (max-width: 768px) {
+@media (min-width: 671px) and (max-width: 781px) {
   .daterium-familia {
     padding: 15px 10px;
   }
@@ -2049,16 +2120,15 @@ input[type="submit"]:hover {
     font-size: 20px;
   }
 
-  .bloqueTxt {
-    margin: 10px;
+  .bloqueFotoTxt {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
   }
 
-  .bloqueTxt h2 {
-    font-size: 20px;
-  }
-
-  .bloqueTxt p {
-    margin: 0 0 10px 0;
+  .columnInfo {
+    border: 1px solid white;
+    padding-bottom: 24px;
   }
 
   .boton a {
@@ -2074,9 +2144,6 @@ input[type="submit"]:hover {
 /* movil */
 
 @media (max-width: 670px) {
-  .header-menu {
-    display: none;
-  }
   .daterium-familia {
     padding: 15px 10px;
   }
@@ -2090,24 +2157,27 @@ input[type="submit"]:hover {
   }
 
   .bloqueFotoTxt {
-    background: none;
-    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
   }
 
   .bloqueTxt {
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     margin: 10px;
-    border: 1px solid white;
+    border: 1px solid rgb(0, 0, 0);
     padding: 0 15px 15px 16px;
     max-height: 500px !important;
   }
 
   .bloqueTxt h2 {
     font-size: 18px;
+    color: black;
   }
 
   .bloqueTxt p {
     margin: 0 0 10px 0;
+    color: black;
   }
 
   .boton a {
@@ -2135,7 +2205,7 @@ input[type="submit"]:hover {
   }
 
   .filaEmpresa img {
-    width: 60%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
@@ -2144,7 +2214,6 @@ input[type="submit"]:hover {
 
 /* tablets */
 @media (min-width: 600px) and (max-width: 768px) {
-
   .filaEmpresa {
     display: flex;
     flex-direction: column;
@@ -2156,13 +2225,13 @@ input[type="submit"]:hover {
   }
 
   .filaEmpresa img {
-    width: 75%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
   }
 
-  .tituloEmpresa{
+  .tituloEmpresa {
     font-size: 28px;
   }
 }
@@ -2170,7 +2239,6 @@ input[type="submit"]:hover {
 /* movil */
 
 @media (max-width: 599px) {
-
   .filaEmpresa {
     display: flex;
     flex-direction: column;
@@ -2182,13 +2250,13 @@ input[type="submit"]:hover {
   }
 
   .filaEmpresa img {
-    width: 75%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
   }
 
-  .tituloEmpresa{
+  .tituloEmpresa {
     font-size: 22px;
   }
 }
@@ -2197,29 +2265,29 @@ input[type="submit"]:hover {
 
 /* ordenadores pequeños */
 @media (min-width: 790px) and (max-width: 980px) {
-  .columnaContacto{
+  .columnaContacto {
     display: flex;
     flex-direction: row;
   }
 
-  .contactoTitulo h2{
+  .contactoTitulo h2 {
     font-size: 28px;
   }
 
-  .contactoInfo p{
+  .contactoInfo p {
     font-size: 16px;
   }
 
-  .txtTitForm{
+  .txtTitForm {
     font-size: 28px;
     padding: 15px;
   }
 
-  .formContacto{
-    padding:15px 25px ;
+  .formContacto {
+    padding: 15px 25px;
   }
 
-  input[type="submit"]{
+  input[type="submit"] {
     padding: 15px;
     font-size: 18px;
   }
@@ -2227,39 +2295,43 @@ input[type="submit"]:hover {
 
 /* tablets */
 @media (min-width: 600px) and (max-width: 789px) {
-
-  .columnaContacto{
+  .columnaContacto {
     display: flex;
   }
 
-  .contactoTitulo h2{
+  .contactoTitulo h2 {
     font-size: 24px;
   }
 
-  .contactoInfo p{
+  .contactoInfo p {
     font-size: 16px;
     margin: 15px;
   }
 
-  .txtTitForm{
+  .txtTitForm {
     font-size: 28px;
     padding: 15px;
   }
 
-  .contact-form-7-formContacto{
-    padding:15px 25px ;
+  .contact-form-7-formContacto {
+    padding: 15px 25px;
   }
 
-  input[type="submit"]{
+  input[type="submit"] {
     padding: 15px;
     font-size: 18px;
+  }
+
+  .contact-form-7-labels{
+    width: 100%;
+    padding: 15px;
   }
 
   .contact-form-7-formContacto textarea {
     font-size: 16px;
   }
 
-  input[type="text"]{
+  input[type="text"] {
     font-size: 16px;
   }
 }
@@ -2267,32 +2339,44 @@ input[type="submit"]:hover {
 /* movil */
 
 @media (max-width: 599px) {
-
-  .columnaContacto{
+  .columnaContacto {
     display: flex;
     flex-wrap: wrap;
     height: auto;
   }
 
-  .contactoTitulo h2{
+  .contact-form-7-nomTelfCorr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+}
+
+  .contactoTitulo h2 {
     font-size: 24px;
   }
 
-  .contactoInfo p{
+  .contactoInfo p {
     font-size: 16px;
     margin: 15px;
   }
 
-  .txtTitForm{
+  .txtTitForm {
     font-size: 20px;
     padding: 15px;
   }
 
-  .contact-form-7-formContacto{
-    padding:15px 25px ;
+  .contact-form-7-formContacto {
+    padding: 15px 25px;
   }
 
-  input[type="submit"]{
+  .contact-form-7-labels{
+    width: 100%;
+    padding: 15px;
+  }
+
+  input[type="submit"] {
     padding: 15px;
     font-size: 18px;
   }
@@ -2301,7 +2385,7 @@ input[type="submit"]:hover {
     font-size: 16px;
   }
 
-  input[type="text"]{
+  input[type="text"] {
     font-size: 16px;
   }
 }

@@ -20,10 +20,10 @@ function cambiarColorActivo(familiaMenu) {
   var familyContainersMenu = document.querySelectorAll(".daterium-brand-menu-list-item");
 
   familyContainersMenu.forEach((x) => {
-    x.classList.remove('colorActivo');
+    x.classList.remove('menu-familia-active');
   });
 
-  familiaActive.classList.add('colorActivo');
+  familiaActive.classList.add('menu-familia-active');
 
 }
 
@@ -47,7 +47,7 @@ function mostrarFamilia(familyContainer) {
       fam.style.display = "block";
     });
     document.querySelectorAll(".daterium-brand-menu-list-item").forEach((item) => {
-      item.classList.remove('colorActivo');
+      item.classList.remove('menu-familia-active');
     });
     document
       .querySelectorAll(".daterium-subfamilia-list")
